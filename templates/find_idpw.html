@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .input {
+            position: relative;
+            left: 550px;
+        }
+        .inputArea {
+            width: 400px;
+            position: relative;
+            margin-top: 20px;
+        }
+        .inputArea input {
+            width: 100%;
+            padding: 20px 10px 10px;
+            border: none;
+            border-bottom: solid black 1px;
+            outline: none;
+            font-size: 18px;
+        }
+        .inputArea label {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 18px;
+            transition: top .3s ease;
+        }
+        .inputArea input:focus + label,
+        .inputArea input:valid + label {
+            top: 0;
+            font-size: 13px;
+            color: rgb(192, 191, 191);
+        }
+        .inputArea input::placeholder{
+            color: transparent;
+        }
+        .inputArea input:focus::placeholder{
+            color: rgb(192, 191, 191);
+        }
+
+        .button {
+            position: relative;
+            left: 860px;
+            font-size: 15px;
+            width: 100px;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 10px;
+            background-color: white;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .text {
+            position: relative;
+            left: 495px;
+        }
+        a { text-decoration-line: none; }
+        a:visited { color: black; }
+        a:link { color: black; }
+    </style>
+</head>
+
+
+<body>
+    <br><br><br><br><br><br>
+    <center><h1>아이디/비밀번호 찾기</h1></center>
+    <br>
+
+    <form action="/find_idpw" method="POST">
+        <div class="input">
+
+            <div class="inputArea">
+                <input type="text" id="name_idpw" name="name_idpw" required>
+                <label for="name_idpw">NAME</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="birth_idpw" name="birth_idpw" placeholder="YYYYMMDD" required>
+                <label for="birth_idpw">BIRTHDAY</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="phone_idpw" name="phone_idpw" placeholder="010-0000-0000" required>
+                <label for="phone_idpw">PHONE</label>
+            </div>
+
+        </div>
+
+        <input type="submit" value="찾기" class="button">
+    </form>
+
+    {% if data_list != '0' %}
+    <center>
+        <br>
+        <span>ID: {{ data_list[0] }} &nbsp &nbsp</span>
+        <span>PASSWORD: {{ data_list[1] }} </span>
+    </center>
+    {% endif %}
+</body>

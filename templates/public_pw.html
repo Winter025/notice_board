@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .pos {
+            position: relative;
+            left: 650px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <center><h1>비밀글 비밀번호 입력</h1></center>
+    <br>
+    <form action="/context/private" method="POST">
+        <div class="pos">
+            <input type="text" id="private_pw" name="private_pw">
+
+            <input type="submit" value="제출하기">
+
+            <input type="hidden" id="private_num" name="private_num" value="{{ data_list[0] }}">
+        </div>
+    </form>
+</body>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .box {
+            width: 35%; 
+            border: solid grey; 
+            text-align: left;
+            padding: 10px;
+            border-radius: 7px;
+        }
+        .text {
+            position: relative;
+            left: 495px;
+        }
+        .button {
+            border: solid rgb(192, 191, 191);
+            color: rgb(192, 191, 191);
+            padding: 10px; 
+            position: relative;
+            top: 50px;
+            left: 720px;
+            border-radius: 10px;
+        }
+        a { text-decoration-line: none; }
+        a:visited { color: black; }
+        a:link { color: black; }
+        a.button:visited { color: rgb(192, 191, 191); }
+    </style>
+</head>
+
+<body>
+    <br>
+    <center>
+        <h1>게시판 내용</h1>
+    </center>
+    <br>
+
+    <p class="text">제목</p>
+    <center>
+        <div class="box" style="height: 20px">
+            {{ data_list[1] }}
+        </div>
+    </center>
+        
+    <br>
+
+    <p class="text">내용</p>
+    <center>
+        <div class="box" style="height: 200px">
+            {{ data_list[3] }}
+        </div>
+    </center>
+
+    <br>
+
+    <form action = "/download" method = "POST" enctype = "multipart/form-data">
+        <div class="text">
+            <input type = "text" name = "file" value="{{ data_list[6] }}"> &nbsp;
+            <input type = "submit" value="다운로드"/>
+        </div>
+    </form>
+
+    {% if userInfo != '0' %}
+    <span class="button">
+        <a href="{{ url_for('delete_notice', num = data_list[0]) }}">게시글 삭제하기</a>
+    </span>
+
+    <span class="button" style="left: 750px;">
+        <a href="{{ url_for('modify', num1 = data_list[0]) }}">게시글 수정하기</a>
+    </span>
+    {% endif %}
+    
+</body>

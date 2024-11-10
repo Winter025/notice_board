@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="shortcut icon" href="#">
+
+    <style>
+        .button {
+            border: solid rgb(192, 191, 191);
+            color: rgb(192, 191, 191);
+            padding: 10px; 
+            position: relative;
+            top: 50px;
+            left: 1005px;
+            border-radius: 10px;
+        }
+        a { text-decoration-line: none; }
+        a:visited { color: black; }
+        a:link { color: black; }
+        a.button:visited { color: rgb(192, 191, 191); }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    {% if userInfo != '0' %}
+    <span style = "position: relative; left: 1300px;">
+        <a href="{{ url_for('profile', username = userInfo[0][0]) }}">{{ userInfo[0][2] }}</a>
+        <span>님 환영합니다</span>
+    </span>
+    {% else %}
+    <span class="button" style="top: 30px; left: 1250px; font-size: 13px; padding: 7px;">
+        <a href="{{ url_for('login') }}">로그인</a>
+    </span>
+    {% endif %}
+
+    <center>
+        <h1>게시판</h1>
+
+            <table border="1" style="text-align: center">
+                <thead style="background-color: rgb(235, 232, 232);">
+                    <tr>
+                        <th style="width:100px">번호</th>
+                        <th style="width:470px">제목</th>
+                        <th style="width:200px">작성자</th>
+                        <th style="width:100px">공개</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% for i in data_list %}
+	                <tr>
+		                <td>{{ i[0] }}</td>
+		                <td><a href="{{ url_for('context', num = i[0]) }}">{{ i[1] }}</a></td>
+		                <td><a href="{{ url_for('profile', username = i[2]) }}">{{ i[2] }}</a></td>
+                        <td>{{ i[4] }}</td>
+	                </tr>
+	                {% endfor %}
+                </tbody>
+            </table>
+
+        <p></p>
+        <hr width="900px" color="grey">
+    </center>
+
+    <span class="button">
+        <a href="{{ url_for('search') }}">게시글 검색하기</a>
+    </span>
+
+    {% if userInfo != '0' %}
+    <span class="button" style="left: 700px">
+        <a href="{{ url_for('write') }}">게시글 작성하기</a>
+    </span>
+    {% endif %}
+
+</body>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .input {
+            position: relative;
+            left: 550px;
+        }
+        .inputArea {
+            width: 400px;
+            position: relative;
+            margin-top: 20px;
+        }
+        .inputArea input {
+            width: 100%;
+            padding: 20px 10px 10px;
+            border: none;
+            border-bottom: solid black 1px;
+            outline: none;
+            font-size: 15px;
+        }
+        .inputArea label {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 15px;
+            transition: top .3s ease;
+        }
+        .inputArea input:focus + label,
+        .inputArea input:valid + label {
+            top: 0;
+            font-size: 13px;
+            color: rgb(192, 191, 191);
+        }
+
+        .inputArea input::placeholder{
+            color: transparent;
+        }
+        .inputArea input:focus::placeholder{
+            color: rgb(192, 191, 191);
+        }
+
+        .button {
+            position: relative;
+            left: 860px;
+            font-size: 15px;
+            width: 100px;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 10px;
+            background-color: white;
+            margin-top: 30px;
+        }
+
+        .text {
+            position: relative;
+            left: 495px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <center><h1>회원가입</h1></center>
+    <br>
+    <form action="/sign_up" method="POST">
+        <div class="input">
+
+            <div class="inputArea">
+                <input type="text" id="username_signup" name="username_signup" required>
+                <label for="username_sign">USER NAME</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="name" name="name" required>
+                <label for="name">NAME</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="birth" name="birth" placeholder="YYYYMMDD" required>
+                <label for="birth">BIRTHDAY</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="phone" name="phone" placeholder="010-0000-0000" required>
+                <label for="phone">PHONE</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="text" id="school" name="school" required>
+                <label for="school">SCHOOL</label>
+            </div>
+
+            <div class="inputArea">
+                <input type="password" id="password_signup" name="password_signup" required>
+                <label for="password_signup">PASSWORD</label>
+            </div>
+
+        </div>
+            <input type="submit" value="회원가입" class="button">
+    </form>
+</body>

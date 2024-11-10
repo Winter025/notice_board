@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .input { 
+            width: 35%;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 7px;
+        }
+        .button {
+            position: relative;
+            left: 910px;
+            font-size: 15px;
+            width: 100px;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 10px;
+            background-color: white;
+        }
+        .text {
+            position: relative;
+            left: 495px;
+        }
+    </style>
+</head>
+
+<body>
+    <center><h1>게시글 검색</h1></center>
+    <br>
+ 
+    <form action="/search/title" method="POST">
+        <p class="text">제목 기준 검색</p>
+        <center><input type="text" id="title_search" name="title_search" class="input"></center>
+        <br>
+        <input type="submit" value="검색하기" class="button">
+    </form>
+
+    <br>
+
+    <form action="/search/context" method="POST">
+        <p class="text">내용 기준 검색</p>
+        <center><input type="text" id="context_search" name="context_search" class="input"></center>
+        <br>
+        <input type="submit" value="검색하기" class="button">
+    </form>
+
+    <br>
+
+    <form action="/search/titleContext" method="POST">
+        <p class="text">제목 + 내용 기준 검색</p>
+        <center><input type="text" id="titleContext_search" name="titleContext_search" class="input"></center>
+        <br>
+        <input type="submit" value="검색하기" class="button">
+    </form>
+
+</body>

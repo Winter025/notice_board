@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .input { 
+            width: 35%;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 7px;
+        }
+        .button {
+            position: relative;
+            left: 910px;
+            font-size: 15px;
+            width: 100px;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 10px;
+            background-color: white;
+        }
+        .text {
+            position: relative;
+            left: 495px;
+        }
+        .choosefile {
+            position: relative;
+            left: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <center><h1>게시글 작성</h1></center>
+    <br>
+ 
+    <form action="/write" method="POST" enctype = "multipart/form-data">
+        <p class="text">제목</p>
+        <center>
+            <input type="text" id="title" name="title" class="input" required>
+        </center>
+        <br>
+
+        <center>
+            <input type="file" name="chooseFile">
+        </center>
+        <br>
+
+        <p class="text">내용</p>
+        <center>
+            <textarea name="context" cols="70" rows="12" style="border: solid rgb(192, 191, 191); border-radius: 10px;" required></textarea>
+        </center>
+        <br>
+
+        <span class="text">
+            <label><input type="radio" name="public_state" value="공개" checked>공개</label>
+            <label><input type="radio" name="public_state" value="비공개">비공개</label>
+        </span>
+        
+        <input type="text" id="public_pw" name="public_pw" style="position: relative; left: 510px;">
+
+
+
+        <br><br>
+
+        <input type="submit" value="제출하기" class="button">
+    </form>
+</body>

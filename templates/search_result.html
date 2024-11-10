@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .button {
+            border: solid rgb(192, 191, 191);
+            color: rgb(192, 191, 191);
+            padding: 10px; 
+            position: relative;
+            top: 50px;
+            left: 1005px;
+            border-radius: 10px;
+        }
+        a { text-decoration-line: none; }
+        a:visited { color: black; }
+        a:link { color: black; }
+        a.button:visited { color: rgb(192, 191, 191); }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>게시판</h1>
+
+        <table border="1" style="text-align: center">
+            <thead style="background-color: rgb(235, 232, 232);">
+                <tr>
+                    <th style="width:100px">번호</th>
+                    <th style="width:470px">제목</th>
+                    <th style="width:200px">작성자</th>
+                    <th style="width:100px">공개</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for i in data_list %}
+                <tr>
+                    <td>{{ i[0] }}</td>
+                    <td><a href="{{ url_for('context', num = i[0]) }}">{{ i[1] }}</a></td>
+                    <td>{{ i[2] }}</td>
+                    <td>{{ i[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p></p>
+        <hr width="900px" color="grey">
+    </center>
+
+    
+
+</body>

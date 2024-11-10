@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .input { 
+            width: 35%;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 7px;
+        }
+        .button {
+            position: relative;
+            left: 910px;
+            font-size: 15px;
+            width: 100px;
+            height: 40px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 10px;
+            background-color: white;
+        }
+        .text {
+            position: relative;
+            left: 495px;
+        }
+    </style>
+</head>
+
+<body>
+    <center><h1>게시글 수정</h1></center>
+    <br>
+ 
+    <form action="/modify_data" method="POST">
+        <p class="text">제목</p>
+        <center><input type="text" id="title_modify" name="title_modify" class="input"></center>
+        <br>
+
+        <p class="text">내용</p>
+        <center>
+            <textarea name="context_modify" cols="72" rows="15" style="border: solid rgb(192, 191, 191); border-radius: 10px;"></textarea>
+        </center>
+        <br><br>
+
+        <input type="submit" value="제출하기" class="button">
+        <input type="hidden" id="num_modify" name="num_modify" value="{{ data_list }}" class="input">
+    </form>
+</body>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .introduce {
+            width: 300px;
+            height: 600px;
+            position: relative;
+            left: 200px;
+            top: 50px;
+            border: solid rgb(192, 191, 191);
+            border-radius: 5px;
+        }
+        img {
+            position: relative;
+            top: 30px;
+            border-radius: 50%;
+            border: solid rgb(94, 93, 93);
+            width: 140px;
+            height: 140px;
+        }
+        .button {
+            border: solid rgb(131, 129, 129) 2px;
+            color: rgb(192, 191, 191);
+            padding: 10px;
+            width: 220px;
+            position: relative;
+            top: 10px;
+            border-radius: 7px;
+        }
+        .intro_text {
+            position: absolute;
+            left: 35px;
+        }
+        .log {
+            position: relative;
+            top: 200px;
+            text-align: center;
+        }
+        a { text-decoration-line: none; }
+        a:visited { color: black; }
+        a:link { color: black; }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="introduce">
+        <center>
+            <img src="{{ url_for('static', filename='img/' + user_profile[0][6]) }}"/>
+
+            <h2 style="position: relative; top:15px">{{ user_profile[0][0] }}</h2>
+            
+            {% if use_me == 1 %}
+            <div class="button">
+                <a href="{{ url_for('profile_modify') }}">내 프로필 수정</a>
+            </div>
+            {% else %}
+            <br>
+            {% endif %}
+        </center>
+        <br>
+        <h5 class="intro_text" style="top: 285px;">이름</h5>
+        <p style="position: absolute; left: 180px; top: 290px;">{{ user_profile[0][2] }}</p>
+
+        <h5 class="intro_text" style="top: 326px;">생년월일</h5>
+        <span style="position: absolute; left: 179px; top: 345px;">{{ user_profile[0][3] }}</span>
+
+        <h5 class="intro_text" style="top: 365px;">전화번호</h5>
+        <span style="position: absolute; left: 178px; top: 385px;">{{ user_profile[0][4] }}</span>
+
+        <h5 class="intro_text" style="top: 405px;">학교</h5>
+        <span style="position: absolute; left: 178px; top: 425px;">{{ user_profile[0][5] }}</span>
+
+
+        <h5 class="log"><a href="{{ url_for('logout') }}">로그아웃</a></h5>
+    </div>
+
+
+
+    <span style="position: absolute; left: 600px; top: 50px;">
+        <h1>작성한 게시글</h1>
+
+        <table border="1" style="text-align: center">
+            <thead style="background-color: rgb(235, 232, 232);">
+                <tr>
+                    <th style="width:70px">번호</th>
+                    <th style="width:400px">제목</th>
+                    <th style="width:150px">작성자</th>
+                    <th style="width:90px">공개</th>
+                </tr>
+            </thead>
+                
+            <tbody>
+                {% for i in data_list %}
+	            <tr>
+		            <td>{{ i[0] }}</td>
+		            <td><a href="{{ url_for('context', num=i[0]) }}">{{ i[1] }}</a></td>
+		            <td>{{ i[2] }}</td>
+                    <td>{{ i[4] }}</td>
+	            </tr>
+	            {% endfor %}
+            </tbody>
+        </table>
+    </span>
+</body>
